@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+      lang="en" xml:lang="en">
+<f:view>
+	<ui:insert name="metadata" />
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<title>Call4All App</title>
+
+		<h:outputStylesheet library="css" name="style.css" />
+		<ui:insert name="head" />
+	</h:head>
+	<h:body>
+
+		<div id="wrapper">
+			<div id="header-wrapper">
+				<div id="header">
+					<div id="logo">
+					</div>
+
+					<div id="document">
+						<div id="header">
+							<div id="title"></div>
+						</div>
+					</div>
+				</div>
+				<div id="container">
+					<div id="sidebar">
+						<ui:insert name="sidebar" />
+					</div>
+					<div id="content">
+						<ui:insert name="content" />
+					</div>
+				</div>
+				<div id="footer"></div>
+			</div>
+		</div>
+	</h:body>
+</f:view>
+</html>
