@@ -7,7 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Java EE 6 webapp project</name>
+    <name>Call4All app</name>
     <description>A starter Java EE 6 webapp project for use on Java EE 6-compliant application servers, generated from the jboss-javaee6-webapp archetype</description>
 
     <properties>
@@ -30,7 +30,7 @@
         <jodatime.version>1.6.2</jodatime.version>
         <arquillian.version>1.0.0.CR1</arquillian.version>
         <arquillian.jbossas7.version>7.0.0.Final</arquillian.jbossas7.version>
-        <richfaces.version>4.0.0.Final</richfaces.version>
+        <richfaces.version>4.1.0-SNAPSHOT</richfaces.version>
         <hibernate.validator.version>4.2.0.CR1</hibernate.validator.version>
         <prettyfaces.version>3.2.1</prettyfaces.version>
         <junit.version>4.8.2</junit.version>
@@ -45,6 +45,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- Seam faces - necessary -->
             <dependency>
                 <groupId>org.richfaces</groupId>
                 <artifactId>richfaces-bom</artifactId>
@@ -103,6 +104,25 @@
             <artifactId>seam-faces</artifactId>
             <version>${seam.faces.version}</version>
         </dependency>
+         <dependency>
+            <groupId>com.ocpsoft</groupId>
+            <artifactId>prettyfaces-jsf2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ocpsoft</groupId>
+            <artifactId>ocpsoft-pretty-time</artifactId>
+        </dependency>
+        <dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<scope>provided</scope>
+		</dependency>
         <dependency>
             <groupId>org.jboss.seam.catch</groupId>
             <artifactId>seam-catch</artifactId>
