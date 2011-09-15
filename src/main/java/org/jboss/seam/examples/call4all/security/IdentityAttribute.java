@@ -1,7 +1,5 @@
 package org.jboss.seam.examples.call4all.security;
 
-import static org.jboss.seam.security.annotations.management.EntityType.IDENTITY_CREDENTIAL;
-
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -13,15 +11,18 @@ import org.jboss.seam.security.annotations.management.EntityType;
 import org.jboss.seam.security.annotations.management.IdentityEntity;
 import org.jboss.seam.security.annotations.management.IdentityProperty;
 import org.jboss.seam.security.annotations.management.PropertyType;
+import org.joda.time.DateTime;
 
 @Entity
-@IdentityEntity(IDENTITY_CREDENTIAL)
-public class IdentityCredential implements Serializable {
+@IdentityEntity(EntityType.IDENTITY_ATTRIBUTE)
+public class IdentityAttribute implements Serializable {
 	
 	private Long id;
-	private String value;
+	private String name;
 	private IdentityObject identityObject;
-	private IdentityCredentialType identityCredentialType;
+	private String value;
+	
+	
 	
 	@Id
 	@GeneratedValue
@@ -31,13 +32,14 @@ public class IdentityCredential implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@IdentityProperty(PropertyType.VALUE)
-	public String getValue() {
-		return value;
+	@IdentityProperty(PropertyType.NAME)
+	public String getName() {
+		return name;
 	}
-	public void setValue(String value) {
-		this.value = value;
+	public void setName(String name) {
+		this.name = name;
 	}
+	
 	@ManyToOne
 	public IdentityObject getIdentityObject() {
 		return identityObject;
@@ -45,15 +47,13 @@ public class IdentityCredential implements Serializable {
 	public void setIdentityObject(IdentityObject identityObject) {
 		this.identityObject = identityObject;
 	}
-	@ManyToOne
-	public IdentityCredentialType getIdentityCredentialType() {
-		return identityCredentialType;
+	@IdentityProperty(PropertyType.VALUE)
+	public String getValue() {
+		return value;
 	}
-	public void setIdentityCredentialType(
-			IdentityCredentialType identityCredentialType) {
-		this.identityCredentialType = identityCredentialType;
+	public void setValue(String value) {
+		this.value = value;
 	}
-	
 	
 
 }

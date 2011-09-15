@@ -1,29 +1,18 @@
 package org.jboss.seam.examples.call4all.security;
 
-import static org.jboss.seam.security.annotations.management.EntityType.IDENTITY_ATTRIBUTE;
-
 import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
-import org.jboss.seam.security.annotations.management.EntityType;
-import org.jboss.seam.security.annotations.management.IdentityEntity;
-import org.joda.time.DateTime;
+import org.jboss.seam.security.annotations.management.IdentityProperty;
+import org.jboss.seam.security.annotations.management.PropertyType;
 
 @Entity
-@IdentityEntity(IDENTITY_ATTRIBUTE)
 public class IdentityType implements Serializable {
-	
 	private Long id;
 	private String name;
-	private String email;
-	private DateTime born;
-	private IdentityObject identityObject;
-	
-	
 	
 	@Id
 	@GeneratedValue
@@ -33,33 +22,12 @@ public class IdentityType implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getName() {
+	@IdentityProperty(PropertyType.NAME)
+	public String getValue() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setValue(String value) {
+		this.name = value;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public DateTime getBorn() {
-		return born;
-	}
-	public void setBorn(DateTime born) {
-		this.born = born;
-	}
-	@ManyToOne
-	public IdentityObject getIdentityObject() {
-		return identityObject;
-	}
-	public void setIdentityObject(IdentityObject identityObject) {
-		this.identityObject = identityObject;
-	}
-	
-	
-	
 
 }
